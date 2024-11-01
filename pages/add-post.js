@@ -1,6 +1,6 @@
-import '../app/globals.css';
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Layout from "@/components/Layout";
 
 export default function AddPostPage() {
     const [title, setTitle] = useState('');
@@ -35,13 +35,13 @@ export default function AddPostPage() {
         }
     }
     return (
-        <div className="container mx-auto p-4 bg-white" >
-            <h1 className="text-2xl font-bold mb-4 text-black">Add a New Post</h1>
+        <Layout>
+            <h1 className="text-2xl font-bold mb-4">Add a New Post</h1>
             <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                     <label 
                         htmlFor="title" 
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Title
                     </label>
@@ -57,7 +57,7 @@ export default function AddPostPage() {
                 <div>
                     <label 
                         htmlFor="content" 
-                        className="block text-sm font-medium text-gray-700"
+                        className="block text-sm font-medium text-gray-300"
                     >
                         Content
                     </label>
@@ -81,6 +81,6 @@ export default function AddPostPage() {
                 </div>
                 {error && <p className="text-red-500">{error}</p>}
             </form>
-        </div>
+        </Layout>
     )
 }
