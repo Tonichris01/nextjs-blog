@@ -3,7 +3,7 @@ import '../app/globals.css';
 
 export async function getServerSideProps(){
     try{
-        const res = await fetch('http://localhost:3000/api/posts');
+        const res = await fetch(`${process.env.API_URL}/posts`);
         const posts = await res.json();
         return{
             props:{posts},
